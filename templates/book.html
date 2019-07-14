@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ Title }}
+{% endblock %}
+
+{% block main %}
+    <div class="jumbotron jumbotron3 shadow" style="padding-top: 5%; padding-bottom: 3%;">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                <div class="jumbotron jumbotron4 shadow">
+                        <label>Title:</label> {{ book["Title"] }}<br>
+                        <label>Author:</label> {{ book["Author"] }}<br>
+                        <label>Year:</label> {{ book["Year"] }}<br>
+                        <label>ISBN:</label> {{ book["ISBN"] }}<br>
+                        <label>Average rating:</label> {{ book["average_rating"] }}<br>
+                        <label>Number of ratings:</label> {{ book["number_of_ratings"] }}
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <div class="jumbotron jumbotron4 shadow" style="-webkit-text-fill-color: initial; text-align: center; color: sandybrown;">
+                    <form action="/add_review" method="post">
+                        <div class="form-group">
+                            Rating: 
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rating" id="rating1" value="1" checked>
+                                <label class="form-check-label" for="rating1">
+                                    1
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                                <label class="form-check-label" for="rating2">
+                                    2
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                                <label class="form-check-label" for="rating3">
+                                    3
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                                <label class="form-check-label" for="rating4">
+                                    4
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
+                                <label class="form-check-label" for="rating5">
+                                    5
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" maxlength="500" name="review" id="review" placeholder="Add a review..." style="width: 100%; height: 150px;" required></textarea>
+                        </div> 
+                        <input type="hidden" name="book_id" value="{{ book['book_id'] }}">
+                        <button class="btn btn-primary" type="submit">Add Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron3 shadow" style="padding-top: 4%; padding-bottom: 0.1%;">
+        {% if reviews|length == 0 %}
+            <div class="jumbotron jumbotron5 shadow">
+                <h2 style="text-align: center">NO REVIEWS!</h2>
+            </div>
+        {% else %}
+            {% for review in reviews %}
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+                        <div class="jumbotron jumbotron5 shadow">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    {{ review["username"] }} <label>rated it:</label> {{ review["rating"] }}
+                                </div>
+                                <div class="col-lg-6" style="text-align: end;">
+                                    <label style="font-size: smaller;">{{ review["date"] }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <p style="-webkit-text-fill-color: darkblue; white-space: pre;">{{ review["review"] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

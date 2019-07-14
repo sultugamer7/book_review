@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Book
+{% endblock %}
+
+{% block main %}
+    <div class="jumbotron jumbotron2 shadow" style="padding-bottom: 0%">
+        <form action="/" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control-sm" name="search" id="search" placeholder="ISBN/Title/Author/Year..." type="text" required>
+                <button class="btn btn-sm btn-outline-primary" type="submit" style="margin-top: -5px; margin-left: 7px;">Search</button>
+            </div>
+        </form>
+        <div class="row" style="margin-top: 27px;">
+            {% for book in books %}
+            <div class="col-lg-4">
+                <div class="jumbotron jumbotron3 shadow">
+                    <div class="jumbotron jumbotron4 shadow">
+                        <label>Title:</label> <a href="{{ url_for('book', book_id=book['book_id']) }}" style="-webkit-text-fill-color: rgb(98, 166, 255);">{{ book["Title"] }}</a><br>
+                        <label>Author:</label> {{ book["Author"] }}<br>
+                        <label>Year:</label> {{ book["Year"] }}<br>
+                        <label>ISBN:</label> {{ book["ISBN"] }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

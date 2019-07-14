@@ -1,0 +1,120 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: x-large;
+}
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: blue;
+}
+nav .navbar-brand .red
+{
+    color: red;
+}
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 3.5rem;    /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    height: 3.5rem;            /* Footer height */
+}
+
+body {
+    background-image: url("https://media.wired.com/photos/5a3950d4635c6e46e7005aaf/master/pass/iStock-528414894.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+    background-color: rgba(255,255,255,0.9);
+}
+
+.jumbotron1 {
+    background-color: rgba(0,0,0,0.7);
+    border-style: ridge;
+    border-color: cornflowerblue;
+    padding-top: 15%;
+    padding-bottom: 12%;
+    border-radius: 0px;
+}
+
+.jumbotron2 {
+    background-color: rgba(0,0,0,0.7);
+    border-style: ridge;
+    border-color: cornflowerblue;
+    border-radius: 0px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.jumbotron3 {
+    background-image: url("http://www.middleburgunitedmethodistchurch.org/clientimages/58914/bookgroup/library%20books.jpg");
+    background-size: contain;
+    background-attachment: fixed;
+    height: 90%;
+    border-style: ridge;
+    border-radius: 0;
+}
+
+.jumbotron4 {
+    background-color: rgba(0,0,0,0.7);
+    border-style: ridge;
+    border-color: cornflowerblue;
+    border-radius: 0px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    height: 95%;
+    width: 97%;
+    -webkit-text-fill-color: sandybrown;
+    text-align: start;
+    font-weight: 500;
+}
+
+.jumbotron5 {
+    background-color: rgba(255, 235, 235, 0.9);
+    border-style: ridge;
+    border-color: darkorange;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 98.35%;
+    -webkit-text-fill-color: firebrick;
+    text-align: start;
+    font-weight: 500;
+}
